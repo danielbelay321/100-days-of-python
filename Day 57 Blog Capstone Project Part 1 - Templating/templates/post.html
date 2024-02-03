@@ -10,18 +10,24 @@
 <div class="wrapper">
     <div class="top">
         <div class="title"><h1>My Blog</h1></div>
-    </div>
+           </div>
     {% for post in posts %}
         <div class="content">
-            <div class="card">
-                <h2>{{ post["title"] }}</h2>
-                <p class="text">{{ post["subtitle"] }} </p>
 
 
-                <a href="{{ url_for('post', id=post['id']) }}">Read</a>
-            </div>
-        </div>
-    {% endfor %}
+                <div class="card">
+                    {% if post['id'] == id %}
+
+                       <h2>{{ post["title"] }}</h2>
+                        <p class="text">{{ post["body"] }} </p>
+                    {% endif %}
+
+
+                </div>
+
+        {% endfor %}
+
+    </div>
 </div>
 </body>
 <footer>
